@@ -19,9 +19,19 @@ function GamePlayers() {
   const makePlayer = (symbol) => {
     return { name: `Player ${symbol}`, token: `${symbol}` };
   };
-  const test = function () {};
 
-  return { makePlayer, test };
+  const playerArr = [makePlayer("X"), makePlayer("O")];
+  let activePlayer = playerArr[0];
+
+  const getActivePlayer = () => {
+    return activePlayer;
+  };
+  const switchActivePlayer = () => {
+    activePlayer === playerArr[0] ? (activePlayer = playerArr[1]) : (activePlayer = playerArr[0]);
+    return activePlayer;
+  };
+
+  return { makePlayer, playerArr, activePlayer, getActivePlayer, switchActivePlayer };
 }
 
 function GameController() {
@@ -30,31 +40,26 @@ function GameController() {
   let result = false;
   let winner = false;
 
-  const playerArr = [players.makePlayer("X"), players.makePlayer("O")];
-  let activePlayer = playerArr[0];
-  const getActivePlayer = () => {
-    return activePlayer;
-  };
-  const switchActivePlayer = () => {
-    activePlayer === playerArr[0] ? (activePlayer = playerArr[1]) : (activePlayer = playerArr[0]);
+  const showTurn = () => {
+    return players.getActivePlayer();
   };
 
   const startRound = () => {
     console.log(board.playBoard);
-    console.log(`It\'s ${getActivePlayer().name}\'s turn.`);
+    console.log(`It\'s ${players.getActivePlayer().name}\'s turn.`);
   };
   const playRound = (row, column) => {
     if (winner) return console.log(`${getActivePlayer().name} has already won!`);
     if (board.playBoard[row - 1][column - 1] !== " ") {
       return console.log("Invalid square! Try again.");
     }
-    board.playBoard[row - 1].splice(column - 1, 1, getActivePlayer().token);
+    board.playBoard[row - 1].splice(column - 1, 1, players.getActivePlayer().token);
 
-    console.log(`Placing ${activePlayer === playerArr[0] ? "Cross" : "Nought"}...`);
+    console.log(`Placing ${players.activePlayer === players.playerArr[0] ? "Cross" : "Nought"}...`);
     checkWinner();
   };
   const endRound = () => {
-    switchActivePlayer();
+    players.switchActivePlayer();
     startRound();
   };
   const checkRow = () => {
@@ -90,7 +95,7 @@ function GameController() {
     } else endRound();
   };
   const endGame = () => {
-    console.log(`We have a winner! ${getActivePlayer().name} wins!`);
+    console.log(`We have a winner! ${players.getActivePlayer().name} wins!`);
     console.log(board.playBoard);
     console.log("Would you like to play again?");
     winner = true;
@@ -103,6 +108,6 @@ function GameController() {
   };
   board.resetBoard();
   startRound();
-  return { playRound, getActivePlayer, newGame };
+  return { playRound, newGame, showTurn };
 }
 const game = GameController();
