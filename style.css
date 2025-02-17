@@ -1,0 +1,100 @@
+html,
+body {
+  font-family: "Roboto";
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgb(44, 42, 46);
+}
+dialog {
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 6px;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  margin: 0%;
+  padding: 0%;
+  backdrop-filter: blur(4px);
+}
+button {
+  color: white;
+  background-color: rgb(44, 42, 46);
+  border-color: white;
+}
+input {
+  background-color: rgb(44, 42, 46);
+  color: white;
+  width: 90%;
+}
+.modal {
+  margin-top: 45vh;
+  color: white;
+  font-size: 400%;
+}
+.winner {
+  color: white;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  justify-items: center;
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: 300%;
+}
+
+.restart-div {
+  display: flex;
+}
+
+.restart {
+  align-self: center;
+}
+.player-names {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  font-size: 50%;
+}
+.name-row {
+  display: grid;
+  gap: 2px;
+  grid-template-columns: 1fr 1fr;
+  text-wrap: nowrap;
+}
+
+.tictactoe {
+  height: 75%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1px;
+  background-color: white;
+  aspect-ratio: 1/1;
+  margin: 5%;
+}
+.square {
+  background-color: rgb(44, 42, 46);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 500%;
+  color: white;
+  border: none;
+}
+.square:hover {
+  background-color: rgb(35, 33, 37);
+}
+.hidden {
+  display: none;
+}

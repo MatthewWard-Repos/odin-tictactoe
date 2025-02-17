@@ -16,5 +16,88 @@
     ></script>
     <title>Tic Tac Toe</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="restart-div">
+          <button class="restart new-game hidden">Restart?</button>
+        </div>
+        <div class="current-player"></div>
+        <div class="player-names">
+          <div class="name-row">
+            <div class="player-1"></div>
+            <input
+              class="input"
+              type="text"
+              placeholder="name..."
+              data-player="0"
+            />
+          </div>
+          <div class="name-row">
+            <div class="player-2"></div>
+            <input
+              class="input"
+              type="text"
+              placeholder="name..."
+              data-player="1"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="tictactoe">
+        <button
+          class="square"
+          data-row="1"
+          data-column="1"
+        ></button>
+        <button
+          class="square"
+          data-row="1"
+          data-column="2"
+        ></button>
+        <button
+          class="square"
+          data-row="1"
+          data-column="3"
+        ></button>
+        <button
+          class="square"
+          data-row="2"
+          data-column="1"
+        ></button>
+        <button
+          class="square"
+          data-row="2"
+          data-column="2"
+        ></button>
+        <button
+          class="square"
+          data-row="2"
+          data-column="3"
+        ></button>
+        <button
+          class="square"
+          data-row="3"
+          data-column="1"
+        ></button>
+        <button
+          class="square"
+          data-row="3"
+          data-column="2"
+        ></button>
+        <button
+          class="square"
+          data-row="3"
+          data-column="3"
+        ></button>
+      </div>
+      <dialog>
+        <div class="modal">
+          <div class="result">We have a winner!</div>
+          <div class="winner"></div>
+          <button class="new-game">Would you like to play again?</button>
+        </div>
+      </dialog>
+    </div>
+  </body>
 </html>
